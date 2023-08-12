@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+            <div class="logo">
+                <a href="https://landing.zytheme.com/siena/landing-form.html"><img src="./images/logo-dark.png"></a>
+            </div>
+            <nav>
+                <div>
+                    <ul>
+                        <li class="active"><a data-scroll="scrollTo" href="#hero">home</a>
+                        </li>
+                        <li><a data-scroll="scrollTo" href="#feature2">feature</a>
+                        </li>
+                        <li><a data-scroll="scrollTo" href="#reviews">reviews</a>
+                        </li>
+                        <li><a data-scroll="scrollTo" href="#clients">clients</a>
+                        </li>
+                        <li><a data-scroll="scrollTo" href="#cta">signup</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    </header>
+    <section id="Home">
+        <div>
+            <h2>Engage more users & supercharge your landing conversion rates</h2>
+        </div>
+        <div>
+            <form method="post" action="assets/php/contact.php">
+                <h4>Start Your 30-day Free Trial</h4>
+                <div class="form-control">
+                    <label for="name">Your name*</label>
+                    <input type="text" name="first-name" required="" aria-required="true">
+                </div>
+                <div  class="form-control">
+                    <label for="name">Email address*</label>
+                    <input type="email" name="email" required="" aria-required="true">
+                </div>
+                <div  class="form-control">
+                    <label for="name">Password*</label>
+                    <input type="password" name="pass" required="" aria-required="true">
+                </div>
+
+                <div  class="form-control">
+                    <input type="submit" class="btn btn--primary btn--block mt-10" value="Get Free Trial Now">
+                </div>
+                <div class="form-notes">
+                    <span>Hurry up, limited time offer</span>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

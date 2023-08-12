@@ -1,0 +1,47 @@
+body{
+    padding: 0;
+    margin: 0;
+
+}
+
+
+header{
+    display: flex;
+    flex-direction: row;
+    margin: 0 60px;
+}
+
+.logo{
+    padding: 10;
+    display: flex;
+    align-items: center;
+}
+
+nav{
+    flex: 1;
+}
+
+nav ul{
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li{
+    list-style: none;
+    margin: 0 20px;
+}
+
+#Home{
+    display: flex;
+    margin: 100px 60px;
+}
+
+#Home > div{
+    flex: 1;
+}
+
+#Home > div:first-child {
+    margin-right: 10;
+}
+
