@@ -2,59 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <title>Landing Page</title>
 </head>
 <body>
     <header>
-            <div class="logo">
-                <a href="https://landing.zytheme.com/siena/landing-form.html"><img src="./images/logo-dark.png"></a>
-            </div>
-            <nav>
-                <div>
-                    <ul>
-                        <li class="active"><a data-scroll="scrollTo" href="#hero">home</a>
-                        </li>
-                        <li><a data-scroll="scrollTo" href="#feature2">feature</a>
-                        </li>
-                        <li><a data-scroll="scrollTo" href="#reviews">reviews</a>
-                        </li>
-                        <li><a data-scroll="scrollTo" href="#clients">clients</a>
-                        </li>
-                        <li><a data-scroll="scrollTo" href="#cta">signup</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+        <div class="logo">
+            <img src="https://landing.zytheme.com/siena/assets/images/logo/logo-dark.png" />
+        </div>
+        <nav> 
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Feature</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Clients</a></li>
+                <li><a href="#">Signup</a></li>
+            </ul>
+
+        </nav>
     </header>
-    <section id="Home">
-        <div>
-            <h2>Engage more users & supercharge your landing conversion rates</h2>
+
+    <section id="section-home"> 
+        <div> 
+            <h1>Engage more users & supercharge your landign conversion rates</h1>
+            <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered landing pages.</p>
         </div>
         <div>
-            <form method="post" action="assets/php/contact.php">
-                <h4>Start Your 30-day Free Trial</h4>
+            <form> 
+                <h4>Start Your 30-Day Free Trial</h4>
                 <div class="form-control">
                     <label for="name">Your name*</label>
-                    <input type="text" name="first-name" required="" aria-required="true">
+                    <input name="name"type="text" />
+                </div>  
+                <div class="form-control">
+                    <label for="email">Email address*</label>
+                    <input name="email"type="email" />
+                </div>   
+                <div class="form-control">     
+                    <label for="password">Password*</label>
+                    <input name="password"type="password" />
                 </div>
-                <div  class="form-control">
-                    <label for="name">Email address*</label>
-                    <input type="email" name="email" required="" aria-required="true">
-                </div>
-                <div  class="form-control">
-                    <label for="name">Password*</label>
-                    <input type="password" name="pass" required="" aria-required="true">
-                </div>
-
-                <div  class="form-control">
-                    <input type="submit" class="btn btn--primary btn--block mt-10" value="Get Free Trial Now">
-                </div>
-                <div class="form-notes">
-                    <span>Hurry up, limited time offer</span>
-                </div>
+                <button class="btn-primary" type="submit">Get free trial now</button>
+                <p><small>¡Hurry up!, Limited time offer</small></p>
             </form>
+        </div>
+    </section>
+
+    <section id="container2">
+        <div class="second-title">
+            <h2>We design your landing page to get high convertion rates</h2>
+        </div>
+        <div id="row">
+            <div class="second-section">
+                <img src="images/estado1-1.png" />
+                <h4>Start your campaign</h4>
+                <p>Highly targeted landing pages will increase your results, and optimization with A/B testing takes you to the next level.</p>
+            </div>  
+            <div class="second-section">
+             <img src="images/estado1-2.png" />
+                <h4>Engage new users</h4>
+                <p>Higher conversion rates means you get more business from your cur rent traffic and reduce cost per cost per acquisition.</p>
+            </div>  
+            <div class="second-section">
+                <img src="images/estado1-3.png" />
+                <h4>Claim your reward</h4>
+                <p>Stop wasting money on more traffic. Get more leads on your existing traffic instead. At the end, this improves your ROI significantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature2">
+        <div class="imagenservicio">
+            <img src="/Users/leobuitrago/Documents/Personales/Cursos/CEDESISTEMAS/FullStack2023/Service1.png" />
+        </div>
+        <div>
+            <img src="/Users/leobuitrago/Documents/Personales/Cursos/CEDESISTEMAS/FullStack2023/Etiqueta.png" />
+            <h3>Build and customize your perfect landing page</h3>
+            <p>This should be used to tell a story and let your users know a little more about your product or service. How can you benefit them? convince them to use your service.</p>
+        </div>
+        <div>
+            <img src="/Users/leobuitrago/Documents/Personales/Cursos/CEDESISTEMAS/FullStack2023/YellowEtiqueta.png" />
+                <h3>Launch your campaign & start engaging new users</h3>
+                <p>This should be used to tell a story and let your users know a little more about your product or service.</p>
+                <ul>
+                    <li>Enim ad minim veniam, quis nostrud exercitat ullamco.</li>
+                    <li>Lorem ipsum dolor sit amet, consectet adipisicing elit, sed doeo eiusmod tempor.</li>
+                </ul>
         </div>
     </section>
 

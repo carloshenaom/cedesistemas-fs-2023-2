@@ -1,47 +1,181 @@
-body{
-    padding: 0;
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("https://landing.zytheme.com/siena/assets/images/background/bg-1.png");
+    background-position: 0;
+    background-repeat: no-repeat;
+    font-family: "Roboto", sans-serif;
 }
 
-
-header{
-    display: flex;
+header {
+    display: flex;/*Para que ser compoirte como un contenedor flex*/
     flex-direction: row;
-    margin: 0 60px;
+    /*flex-direction: row-reverse; Sigue siendo fila pero en espejo*/
+    /*border: 1px solid green;*/
+    margin: 0 60px; /*Para que el logo quede mejor ubicado*/
 }
 
 .logo{
-    padding: 10;
-    display: flex;
-    align-items: center;
+    /*border: 1px solid red;*/ 
+    padding: 10px;
+    display: flex; /*Para poder centrar el logo verticalmente creo una flex*/
+    /*flex:100; Yo asocio la distancia en proprción a la que yo quiera, si no 
+    quiero sino que ocupe el espacio vital, le quito la flex.*/
+    align-items: center; /*Con esto le damos alineación*/
+
 }
 
 nav{
-    flex: 1;
+   /* border: 1px solid blue;*/
+    flex: 100;
 }
 
 nav ul{
     padding: 0;
-    display: flex;
-    justify-content: flex-end;
+    display: flex; /*Para que me quede en caja y de izquierda a derecha*/
+    justify-content: flex-end; /*Para que el contenido quede a la derecha*/
 }
 
-nav ul li{
+nav ul li {
     list-style: none;
+    /*border: 1px solid brown;*/
     margin: 0 20px;
 }
 
-#Home{
-    display: flex;
+nav a {
+    color: #6262a0;
+    text-decoration: none;
+    font-size: 1.0em;
+}
+
+nav a:hover {
+    color: #664ffa;
+}
+
+h1{
+    color: #6262a8;
+    font-size: 2.3em;
+    font-weight: 700;
+}
+
+p{
+    color: #ababc7;
+}
+
+form{
+    background-color: #fff;
+    padding: 10px 40px;
+    border-radius: 6px;
+    box-shadow: 0px 2px 4px 1px rgba(163,163,163,0.79);
+    -webkit-box-shadow: 0px 2px 4px 1px rgba(163,163,163,0.79);
+    -moz-box-shadow: 0px 2px 4px 1px rgba(163,163,163,0.79);
+}
+
+form h4{
+    text-align: center;
+    color: #6262a0;
+    font-weight: 400; /*Debe ser igual a las condiciones de fuente importadas ver linea 1*/
+}
+
+.form-control {
+    /*border: 1px solid red; Me apoya al momento de visualizar los espacios*/
+    margin-bottom: 10px; /*Permite dar un margen a cada casilla del formulario*/
+}
+
+
+.form-control label { 
+    display: block; /*Ocupa el label como bloque, ocupando toodo el ancho completo*/
+    color: #664ffa;
+    font-size: 0.9em; /*tamaño de fuente*/
+    margin-bottom: 6px;
+}
+
+.form-control input {
+    /* display: block; Así lo ponga en bloque, el mismo controla su tamaño*/
+    width:100%;
+    background-color: #f7f6ff;
+    color: #222; /*Color del texto*/
+    border: 1px solid #ced4da;/*Color del borde del cajón*/
+    border-radius: 5px; /*Chaflan en las puntas*/
+    padding:6px 6px 6px 18px ; /*Dar espacios en los bordes hacia adentro*/
+    outline: none; /*para que no resalte el borde en color azul al poner el cursor ahí*/
+    box-sizing: border-box; /*Decirle a la caja que sea de cierto tamaño*/
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #664ffa;
+    color: #fff;
+    text-transform: uppercase; /*Transformar el texto a mayusculas*/
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-primary:hover{ /*Para que haga una acción al pasar el cursor por encima*/
+    border-color: #3b1df9;
+    background-color: #3b1df9;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+#section-home{
+    display: flex; /**/
     margin: 100px 60px;
 }
 
-#Home > div{
+#section-home > div{ /*Agarre solo el primer nivel de div después de la sección home*/
+    /*border: 1px solid red;*/
     flex: 1;
 }
 
-#Home > div:first-child {
-    margin-right: 10;
+#section-home >div:first-child {
+    margin-right: 10px;
 }
 
+#container2 h2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    color: #6262a0;
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+}
+
+ #row {
+    
+    display: flex;
+    padding: 100px;
+    border: 20px;
+    color: #6262a0;
+    font-size: 22px;
+    justify-content:center; 
+}
+
+.second-section{
+    /*align-items: center;*/
+    padding: 20px;
+    text-align: center; 
+}
+
+.second-section img {
+    
+    width:70;
+    /*height: 70px;*/
+}
+
+#feature2 {
+    border: 20px;
+    color: #6262a0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+
+}
