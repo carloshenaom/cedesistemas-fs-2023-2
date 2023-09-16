@@ -1,5 +1,6 @@
 import { styled } from "styled-components"
 import { COLORS } from "../../../../GlobalStyles"
+import { Link} from "react-router-dom"
 
 
 const TopEventsContainer = styled.section`
@@ -27,10 +28,12 @@ const EventContent = styled.div`
     font-size:1.2em;
     line-height:1.2em;
     margin: 10px 0;
+    color:#222;
 
   }
   p{
     margin:0;
+    color:#222;
   }
 
 `
@@ -62,6 +65,7 @@ const EVENTS_DATA = [
 // tiene un retorno implicito o sea es directo el return
 // no se usa la palabra return y cambiar las llaves por parentesis
 const Event = (props) => (
+  <Link to={`/detail/${props.id}`} >
   <EventWrapper>
     <img src={props.image} width="200px"/>
     <EventContent>
@@ -74,6 +78,7 @@ const Event = (props) => (
     </EventContent>
 
   </EventWrapper>
+  </Link>
 )
 
 export const TopEvents =() =>{

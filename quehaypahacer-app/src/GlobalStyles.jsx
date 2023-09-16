@@ -16,6 +16,13 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Poppins';
 
   }
+  a{
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: none;
+  }
 `
 
 export const Button = styled.button`
