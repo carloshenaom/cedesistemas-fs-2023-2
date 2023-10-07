@@ -10,6 +10,11 @@ export const COLORS = {
 }
 
 export const GlobalStyles = createGlobalStyle`
+
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+
   body{
     margin:0;
     padding: 0;
@@ -43,4 +48,33 @@ export const Button = styled.button`
 
   }
 
+`
+export const FormContainer = styled.section `
+  //border: 1px solid red;
+
+`
+
+export const FormControl = styled.div `
+
+  margin: 12px 0;
+
+  input{
+    width:100%;
+    font-family: "Montserat";
+    font-size: 1.1em;
+    border: 2px solid ${COLORS.secondary};
+    border-radius: 6px;
+    padding: 8px 10px;
+    outline:none;
+
+  }
+
+  label {
+    font-size: ${props => props.fontSize || '1.0em' };
+  }
+
+  span {
+    font-size:0.7em;
+    color: ${COLORS.error}
+  }
 `

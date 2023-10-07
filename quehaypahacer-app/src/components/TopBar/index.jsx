@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { TopbarContainer, TopbarIcon, TopbarTitle } from "./styles"
 import {  IoHomeOutline, IoPersonCircleOutline, IoLogInOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export const TopBar =  () => {
 
-  const isAuth = true
+  //const isAuth = false
+  const { user } = useContext(UserContext)
 
   return(
     <TopbarContainer>
@@ -18,7 +21,7 @@ export const TopBar =  () => {
       </TopbarTitle>
       <TopbarIcon>
         {
-          isAuth
+          user.isAuth
             ? <Link to="/profile"><IoPersonCircleOutline /> </Link>
             : <Link to="/login"><IoLogInOutline /></Link>
         }

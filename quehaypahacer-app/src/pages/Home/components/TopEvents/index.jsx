@@ -1,6 +1,9 @@
 import { styled } from "styled-components"
 import { COLORS } from "../../../../GlobalStyles"
 import { Link} from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
+import { CategoryContext } from "../../../../context/CategoryContext";
+
 
 
 const TopEventsContainer = styled.section`
@@ -83,6 +86,19 @@ const Event = (props) => (
 
 export const TopEvents =() =>{
 
+  const { categoryState } = useContext(CategoryContext)
+  const [ events, setEvents] = useState(EVENTS_DATA)
+
+  useEffect(() => {
+
+    if (categoryState.categorySelected !== 0){
+      const eventFilter = EVENTS_DATA.filter(item => item.category === categoryState.categorySelected)
+      setEvents(eventFilter)
+    }else{
+      setEvents(EVENTS_DATA)
+
+    }
+  })
 
   return(
     <TopEventsContainer>
@@ -90,7 +106,7 @@ export const TopEvents =() =>{
       <section>
         {
           // spreedoperator de javascript
-          EVENTS_DATA.map(item => <Event {...item} />)
+          events.map(item => <Event {...item} />)
         }
       </section>
 

@@ -4,6 +4,8 @@ import { Home } from "./pages/Home"
 import { EventDetail } from "./pages/EventDetail"
 import { Profile } from "./pages/Profile"
 import { Confirmation } from "./pages/Confirmation"
+import { Login } from "./pages/Login"
+import { UserContextStore } from "./context/UserContext"
 
 
 const router = createBrowserRouter([
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/confirmation',
     element: <Confirmation />
+  },
+  {
+    path: '/login',
+    element: <Login />
   }
 ])
 
@@ -31,8 +37,10 @@ export const App = () => {
   return (
     <>
       <GlobalStyles />
+      <UserContextStore>
+        <RouterProvider router={router} />
+      </UserContextStore>
 
-      <RouterProvider router={router} />
     </>
   )
 }
