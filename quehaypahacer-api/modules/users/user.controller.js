@@ -10,10 +10,10 @@ const login = (req, res) => {
   }
 }
 
-const signup = (req, res) => {
+const signup = async (req, res) => {
   try {
     const userData = req.body
-    const response = userService.create(userData)
+    const response = await userService.create(userData)
     res.status(200).json(response)
 
   } catch (error) {
