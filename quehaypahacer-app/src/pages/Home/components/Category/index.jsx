@@ -4,7 +4,7 @@ import { COLORS } from "../../../../GlobalStyles"
 const CategoryWrapper = styled.div `
   width: 80px;
   height: 80px;
-  background-color: ${props => props.isActive ? COLORS.primary : COLORS.secondary};
+  background-color: ${props => props.$isActive ? COLORS.primary : COLORS.secondary};
   border-radius: 5px;
   margin: 0 5px;
   display: flex;

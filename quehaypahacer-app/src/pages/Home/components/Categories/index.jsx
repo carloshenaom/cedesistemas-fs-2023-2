@@ -49,7 +49,8 @@ export const Categories = () =>{
   return(
     <CategoriesContainer>
       {
-        CATEGORY_LIST.map(item => <Category
+        CATEGORY_LIST.map((item,key) => <Category
+        key={key}
           isActive={categoryState.categorySelected === item.id}
           {...item}
           onChangeCategory = {onChangeCategory} />) //spring operator

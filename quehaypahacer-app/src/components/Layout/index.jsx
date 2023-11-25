@@ -1,5 +1,7 @@
+import { useContext, useEffect } from "react"
 import { TopBar } from "../TopBar"
 import { styled } from 'styled-components'
+import { UserContext } from "../../context/UserContext"
 
 const ContentLayout = styled.section`
   margin-top: 60px;
@@ -8,6 +10,12 @@ const ContentLayout = styled.section`
 
 
 export const Layout = (props) =>{
+
+  const { validateSession } = useContext(UserContext) //llamada al contexto
+
+  useEffect(()=>{
+    validateSession()
+  }, []) // 1 vez
 
   return(
     <>

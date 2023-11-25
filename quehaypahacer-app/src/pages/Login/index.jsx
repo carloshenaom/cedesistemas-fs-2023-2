@@ -4,29 +4,41 @@ import { Link, useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { useContext } from "react"
 import { UserContext } from "../../context/UserContext"
+import { httpRequest } from "../../utils/HttpRequest"
+import { setToken } from "../../utils/TokenLocalStorage"
+import { ALERT_ICON, Alert } from "../../components/Alerts"
 
 const emailPatter = /^[A-Za-z]+[A-Za-z0-9_\.]*@[A-Za-z0-9]+\.[A-Za-z]+/i
 
 export const Login = () =>{
 
-  const { setAutorization } = useContext(UserContext)
+  //const { setAutorization } = useContext(UserContext)
   const navigate = useNavigate()
 
   const { register, handleSubmit, formState:{errors} } =useForm()
 
-  const onSubmitLogin = data => {
-    console.log('form', data)
-    if( data.email ==='casa@gmail.com' && data.password === '123456' ){
-      const userData = {
-        name:'Juanito',
-        email:data.email,
-        document:'000001',
-        phone: '55555'
-      }
-      setAutorization(userData)
-      navigate('/')
-    }else{
-      alert('error de autenticación')
+  const onSubmitLogin = async data => {
+    try {
+      const response = await httpRequest({
+        endpoint: '/users/login',
+        body:data
+      })
+
+      const {token} = response.data
+      setToken(token)
+      //setAutorization({})
+      setTimeout(()=>{ //pausa de 1 seg
+        navigate('/')
+      }, 1000)
+
+
+    } catch (error) {
+
+      Alert({
+        icon:ALERT_ICON.ERROR,
+        title:'Credenciales Invalidas',
+        text: 'Verifica tus credenciales'
+      })
     }
   }
 

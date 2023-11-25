@@ -2,8 +2,10 @@ import { styled } from "styled-components"
 import { COLORS } from "../../../../GlobalStyles"
 import { Link} from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
-import { CategoryContext } from "../../../../context/CategoryContext";
-
+import { CategoryContext } from "../../../../context/CategoryContext"
+import { httpRequest, HTTP_METHODS } from "../../../../utils/HttpRequest"
+import { currencyFormat } from "../../../../utils/CurrencyFormat"
+import { dateFormat } from "../../../../utils/dateFormat"
 
 
 const TopEventsContainer = styled.section`
@@ -49,7 +51,7 @@ const FreeText = styled.p `
   display: inline;
 `
 
-
+/*
 const EVENTS_DATA = [
   { id:1,
     image:'https://www.eltiempo.com/files/image_640_428/uploads/2022/07/29/62e3d34873715.jpeg',
@@ -64,19 +66,20 @@ const EVENTS_DATA = [
     image:'https://where.com.co/wp-content/uploads/2022/07/sIRVALO-PUES.jpg',
     title:'Concierto de Música', date:'10/09/2023', location:'La Macarena - Medellin', is_free:false, price:80000, category:3 }
 ]
+*/
 
 // tiene un retorno implicito o sea es directo el return
 // no se usa la palabra return y cambiar las llaves por parentesis
 const Event = (props) => (
-  <Link to={`/detail/${props.id}`} >
+  <Link to={`/detail/${props._id}`} >
   <EventWrapper>
     <img src={props.image} width="200px"/>
     <EventContent>
-      <h4>{props.title}</h4>
-      <p>{props.date}</p>
-      <p>{props.location}</p>
+      <h4>{props.name}</h4>
+      <p>{dateFormat(props.date)}</p>
+      <p>{props.place}</p>
       {
-        props.is_free ? <FreeText>Gratuito</FreeText> : <p>$ {props.price}</p>
+        props.prize === 0 ? <FreeText>Gratuito</FreeText> : <p>{ currencyFormat(props.prize) }</p>
       }
     </EventContent>
 
@@ -84,11 +87,46 @@ const Event = (props) => (
   </Link>
 )
 
-export const TopEvents =() =>{
+export const TopEvents =({latitude, longitude}) =>{
 
   const { categoryState } = useContext(CategoryContext)
-  const [ events, setEvents] = useState(EVENTS_DATA)
+  const [ events, setEvents] = useState([])
 
+  useEffect(()=>{
+    loadEvents()
+
+  },[latitude, longitude, categoryState]) //1a y unica vez
+
+  const loadEvents = async () => {
+
+    try {
+
+      let params={}   //por ser un objeto
+
+      if (categoryState.categorySelected !== 0) {
+        params.category=categoryState.categorySelected
+      }
+
+      if(latitude && longitude){
+        params.latitude=latitude
+        params.longitude=longitude
+      }
+
+      const response = await httpRequest({
+        method: HTTP_METHODS.GET,
+        endpoint: '/events',
+        params
+
+      })
+
+      const {events:data} = response.data
+      setEvents(data)
+
+    } catch (error) {
+      throw error
+    }
+  }
+  /*
   useEffect(() => {
 
     if (categoryState.categorySelected !== 0){
@@ -99,14 +137,15 @@ export const TopEvents =() =>{
 
     }
   })
-
+  */
   return(
     <TopEventsContainer>
       <h3>Eventos Cercanos</h3>
+      <h4>{latitude}, {longitude}</h4>
       <section>
         {
           // spreedoperator de javascript
-          events.map(item => <Event {...item} />)
+          events.map((item, key) => <Event key={key} {...item} />)
         }
       </section>
 
