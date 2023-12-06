@@ -15,6 +15,7 @@ require('./conn/conn.mongo')
 app.use('/users', require('./modules/users/users.routes'))
 app.use('/companies', require('./modules/companies/companies.routes'))
 app.use('/events', require('./modules/events/events.routes'))
+app.use('/booking', require('./modules/booking/booking.routes'))
 
 
 app.listen(port, ()=>{
