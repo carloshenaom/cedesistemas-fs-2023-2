@@ -34,7 +34,7 @@ export const UserContextStore = props => {
     try {
       console.log('requestuser')
       const response = await httpRequest({
-        endpoint: '/user/info',
+        endpoint: '/users/info',
         token: getToken()
       })
       console.log(response)
@@ -42,7 +42,7 @@ export const UserContextStore = props => {
       setAutorization(data)
     } catch (error) {
       console.log(error)
-      logout()
+      //logout()
     }
   }
 

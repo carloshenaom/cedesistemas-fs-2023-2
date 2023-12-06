@@ -1,16 +1,16 @@
-import { styled } from "styled-components"
 import { Layout } from "../../components/Layout"
-import { Button } from "../../GlobalStyles"
-import { COLORS } from "../../GlobalStyles"
+import { Button, COLORS } from "../../GlobalStyles"
 import { useParams } from "react-router-dom"
 import { httpRequest, HTTP_METHODS } from "../../utils/HttpRequest"
 import { useContext, useEffect, useState } from "react"
 import { currencyFormat } from "../../utils/CurrencyFormat"
 import { dateFormat } from "../../utils/dateFormat"
 import { UserContext } from "../../context/UserContext"
-import { Alert } from "../../components/Alerts"
+import { ALERT_ICON, Alert } from "../../components/Alerts"
 import { getCategoryText } from "../../constants/categoriesDict"
+import { useNavigate } from 'react-router-dom'
 
+import { styled } from "styled-components"
 
 const DetailWrapper = styled.section`
 
@@ -20,8 +20,10 @@ const DetailWrapper = styled.section`
   }
 `
 
+
 export const EventDetail = () =>{
 
+  const navigate = useNavigate()
   const { id } = useParams()
   const [event, setEvent] = useState({})
   const { user } = useContext(UserContext)
@@ -46,11 +48,35 @@ export const EventDetail = () =>{
       //throw error
     }
   }
-  const joinToEvent =()=>{
-    if(user.isAuth){
-      //taller final... registrarlo al evento
-      // si sale bien... redireccionarlo a confirmacion
-      // si sale mal... mostrar una alerta coin la restriccion
+  const joinToEvent = async ()=>{
+    if(user.isAuth){ // puede unirse al evento
+      // TODO: taller final :D
+
+      // registrarlo al evento
+      const bookingData = {
+        idUser: user._id,
+        idEvent: event._id
+      }
+
+      const response = await httpRequest({
+        endpoint: '/booking/',
+        body: bookingData
+      })
+      const {data} = response
+
+      // si sale bien: redireccionarlo a confirmation-screen
+      if(data && data?.booking && data?.booking._id){
+        navigate('/confirmation')
+      }else{
+        Alert ({
+          icon: ALERT_ICON.ERROR,
+          title: 'Reserva no existosa',
+          text: data.error
+        })
+      }
+
+      // si sale mal: mostrar una alerta con la restricción
+
     }else{
       // Alert
       Alert({
