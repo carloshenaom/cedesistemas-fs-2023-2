@@ -1,0 +1,11 @@
+<div class="container mt-5">
+   <div *ngFor="let event of events" class=" card mb-3">
+      <img src="{{event.image}}" class="card-img-top" heigh="250" alt="...">
+      <div class="card-body">
+        <h5 class="card-tile">{{event.name}}</h5>
+        <p class="card-text">{{event.description}}</p>
+        <p class="card-text" class="text-body-secondary"><small>Last Update {{event.lastUpdate}} min ago</small>></p>
+        <a routerLink = "/eventDetail/{{event._id}}">ver más</a>
+      </div>
+    </div>
+  </div>
